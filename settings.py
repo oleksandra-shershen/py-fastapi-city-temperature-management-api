@@ -7,7 +7,7 @@ load_dotenv()
 
 
 class Settings(BaseSettings):
-    PROJECT_NAME: str = "Temperature temperature api"
+    PROJECT_NAME: str = "Temperature api"
 
     DATABASE_URL: str | None = "sqlite:///./city_temperature.db"
     WEATHER_API_URL: str | None = "http://api.weatherapi.com/v1/current.json"
