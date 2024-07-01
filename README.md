@@ -15,8 +15,8 @@ This is a FastAPI application designed to manage city data and their correspondi
 
 1. Clone the repository and create a new branch:
     ```sh
-    git clone https://github.com/your-username/city-temperature-management-api.git
-    cd city-temperature-management-api
+    https://github.com/oleksandra-shershen/py-fastapi-city-temperature-management-api.git
+    cd py-fastapi-city-temperature-management-api
     git checkout -b new-branch
     ```
 
@@ -45,17 +45,12 @@ This is a FastAPI application designed to manage city data and their correspondi
     pip install -r requirements.txt
     ```
 
-5. Initialize the database:
-    ```sh
-    python init_db.py
-    ```
-
-6. Run the project:
+5. Run the project:
     ```sh
     uvicorn main:app --reload
     ```
 
-7. Go to the site: [http://localhost:8000](http://localhost:8000)
+6. Go to the site: [http://localhost:8000](http://localhost:8000)
 
 ## API Endpoints
 Visit the detailed Swagger documentation at `http://localhost:8000/docs`.
@@ -84,4 +79,3 @@ Visit the detailed Swagger documentation at `http://localhost:8000/docs`.
 
 - The temperature data is fetched from a placeholder online resource. In a real-world application, this would be replaced with an actual weather API.
 - Error handling is implemented for common scenarios, such as trying to create a city that already exists or fetching temperature data for a non-existent city.
-- The database is initialized using a simple script (`init_db.py`). In a production environment, this might be replaced with a more robust migration tool.
