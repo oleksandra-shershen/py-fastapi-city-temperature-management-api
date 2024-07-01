@@ -21,6 +21,7 @@ This is a FastAPI application designed to manage city data and their correspondi
 - Make sure the .env file is in .gitignore
 
 3. Create and activate a virtual environment:
+   
 On Windows:
 ```sh
 python -m venv venv 
