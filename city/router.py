@@ -1,8 +1,9 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
 from dependencies import get_db
 from . import schemas, crud
+from .exceptions import city_already_exists_exception, city_not_found_exception
 
 router = APIRouter()
 
@@ -20,9 +21,7 @@ def create_city(
     db_city = crud.get_city_by_name(db=db, name=city.name)
 
     if db_city:
-        raise HTTPException(
-            status_code=400, detail="Such name for Temperature already exists"
-        )
+        city_already_exists_exception()
 
     return crud.create_city(db=db, city=city)
 
@@ -32,7 +31,7 @@ def read_single_city(city_id: int, db: Session = Depends(get_db)):
     db_city = crud.get_city(db=db, city_id=city_id)
 
     if db_city is None:
-        raise HTTPException(status_code=404, detail="Temperature not found")
+        city_not_found_exception()
 
     return db_city
 
@@ -48,7 +47,7 @@ def update_single_city(
     )
 
     if db_city is None:
-        raise HTTPException(status_code=404, detail="Temperature not found")
+        city_not_found_exception()
 
     return db_city
 
@@ -58,6 +57,6 @@ def delete_single_city(city_id: int, db: Session = Depends(get_db)):
     deleted = crud.delete_city(db=db, city_id=city_id)
 
     if not deleted:
-        raise HTTPException(status_code=404, detail="Temperature not found")
+        city_not_found_exception()
 
     return {"deleted": deleted}
