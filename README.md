@@ -20,6 +20,7 @@ This is a FastAPI application designed to manage city data and their correspondi
 - Save the .env file securely
 - Make sure the .env file is in .gitignore
 
+
 3. Create and activate a virtual environment:
    
 On Windows:
